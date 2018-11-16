@@ -1,0 +1,8 @@
+{
+  "name": "rako-logger",
+  "version": "0.0.3",
+  "main": "src/logger.js",
+  "repository": "https://github.com/rabbitooops/rako-logger.git",
+  "author": "rabbit <rabbitmeow886@gmail.com>",
+  "license": "MIT"
+}
