@@ -9,7 +9,7 @@ function print(prefix, producerName, newState, oldState, {type, substate, isSync
 function logger(moduleName) {
   const prefix = moduleName === undefined ? '' : `${moduleName}.`
   return producer => {
-    const producerName = producer.name
+    const producerName = producer.displayName || producer.name
     return getState => {
       console.group(`%c${prefix}${producerName}`, 'color:#fff;background:#4d5f77;font-size:1rem;padding:2px 4px')
       console.log('%cstate', 'color:#27089e;font-size:1rem;font-weight:700', getState())

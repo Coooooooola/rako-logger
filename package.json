@@ -1,6 +1,6 @@
 {
   "name": "rako-logger",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "src/logger.js",
   "repository": "https://github.com/rabbitooops/rako-logger.git",
   "author": "rabbit <rabbitmeow886@gmail.com>",
