@@ -1,4 +1,4 @@
-function print(prefix, producerName, newState, oldState, {type, substate, isSync}) {
+function print(prefix, producerName, newState, oldState, type, substate, isSync) {
   console.group(`%c${prefix}${producerName}.${type}%c` + (isSync ? '%c' : '  %c(async)'), 'color:#fff;background:#4d5f77;font-size:1rem;padding:2px 4px', '', 'color:#fff;background:#b00404;font-size:1rem;padding:2px 4px')
   console.log('%csubstate ', 'color:#3482bb;font-size:1rem;font-weight:700', substate)
   console.log('%cnew state', 'color:#7e2083;font-size:1rem;font-weight:700', newState)
@@ -15,13 +15,13 @@ function logger(moduleName) {
       console.log('%cstate', 'color:#27089e;font-size:1rem;font-weight:700', getState())
       console.groupEnd()
 
-      return next => action => {
+      return next => (substate, extra, type, isSync) => {
         const oldState = getState()
-        const ret = next(action)
+        const ret = next(substate, extra, type, isSync)
         const newState = getState()
 
         if (oldState !== newState) {
-          print(prefix, producerName, newState, oldState, action)
+          print(prefix, producerName, newState, oldState, type, substate, isSync)
         }
 
         return ret
